@@ -1,0 +1,17 @@
+[
+  {
+    "id": "pokemon-unopened",
+    "name": "ポケモン未開封",
+    "sortOrder": 1
+  },
+  {
+    "id": "onepiece-unopened",
+    "name": "ワンピース未開封",
+    "sortOrder": 2
+  },
+  {
+    "id": "ar-guarantee",
+    "name": "AR最低保証",
+    "sortOrder": 3
+  }
+]

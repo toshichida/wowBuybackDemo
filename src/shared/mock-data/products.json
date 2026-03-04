@@ -1,0 +1,65 @@
+[
+  {
+    "id": "pokemon-001",
+    "name": "ポケモンカード 151 ボックス",
+    "buybackPrice": 3500,
+    "imageUrl": "https://placehold.co/120x120/1a365d/ffffff?text=151",
+    "categoryId": "pokemon-unopened"
+  },
+  {
+    "id": "pokemon-002",
+    "name": "ポケモンカード パラダイムトリガー ボックス",
+    "buybackPrice": 2800,
+    "imageUrl": "https://placehold.co/120x120/1a365d/ffffff?text=PT",
+    "categoryId": "pokemon-unopened"
+  },
+  {
+    "id": "pokemon-003",
+    "name": "ポケモンカード シャイニングトレジャー ボックス",
+    "buybackPrice": 4200,
+    "imageUrl": "https://placehold.co/120x120/1a365d/ffffff?text=ST",
+    "categoryId": "pokemon-unopened"
+  },
+  {
+    "id": "onepiece-001",
+    "name": "ワンピースカードゲーム OP05  booster",
+    "buybackPrice": 3200,
+    "imageUrl": "https://placehold.co/120x120/2d3748/ffffff?text=OP05",
+    "categoryId": "onepiece-unopened"
+  },
+  {
+    "id": "onepiece-002",
+    "name": "ワンピースカードゲーム OP06 booster",
+    "buybackPrice": 3800,
+    "imageUrl": "https://placehold.co/120x120/2d3748/ffffff?text=OP06",
+    "categoryId": "onepiece-unopened"
+  },
+  {
+    "id": "onepiece-003",
+    "name": "ワンピースカードゲーム スターターセット",
+    "buybackPrice": 1500,
+    "imageUrl": "https://placehold.co/120x120/2d3748/ffffff?text=ST",
+    "categoryId": "onepiece-unopened"
+  },
+  {
+    "id": "ar-001",
+    "name": "AR最低保証 ポケモン イラストレーター",
+    "buybackPrice": 150000,
+    "imageUrl": "https://placehold.co/120x120/744210/ffffff?text=AR",
+    "categoryId": "ar-guarantee"
+  },
+  {
+    "id": "ar-002",
+    "name": "AR最低保証 シャイニングカード",
+    "buybackPrice": 25000,
+    "imageUrl": "https://placehold.co/120x120/744210/ffffff?text=SC",
+    "categoryId": "ar-guarantee"
+  },
+  {
+    "id": "ar-003",
+    "name": "AR最低保証 サイン入りカード",
+    "buybackPrice": 50000,
+    "imageUrl": "https://placehold.co/120x120/744210/ffffff?text=SIGN",
+    "categoryId": "ar-guarantee"
+  }
+]
