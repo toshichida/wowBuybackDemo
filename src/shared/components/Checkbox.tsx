@@ -12,11 +12,14 @@ export function Checkbox({ label, id, className = '', ...props }: CheckboxProps)
       <input
         type="checkbox"
         id={checkboxId}
-        className={`h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 ${className}`}
+        className={`h-5 w-5 rounded border-slate-300 text-slate-800 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 transition-colors cursor-pointer ${className}`}
         {...props}
       />
       {label && (
-        <label htmlFor={checkboxId} className="ml-2 text-sm text-gray-700">
+        <label
+          htmlFor={checkboxId}
+          className="ml-2 cursor-pointer text-sm font-medium text-slate-700 select-none"
+        >
           {label}
         </label>
       )}

@@ -1,1 +1,108 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-display: 'Outfit', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --color-primary: #1a365d;
+  --color-primary-hover: #2c5282;
+  --color-accent: #d69e2e;
+  --color-accent-hover: #b7791f;
+}
+
+/* ===== デザインシステム: 買取専門店WOW ===== */
+:root {
+  /* ブランドカラー - 高級感のあるトレーディングカード買取のイメージ */
+  --color-primary: #1a365d;
+  --color-primary-hover: #2c5282;
+  --color-primary-light: #2b6cb0;
+  --color-accent: #d69e2e;
+  --color-accent-hover: #b7791f;
+  --color-accent-light: #f6e05e;
+  --color-success: #276749;
+  --color-success-bg: #c6f6d5;
+  --color-warning: #c05621;
+  --color-warning-bg: #feebc8;
+  --color-error: #c53030;
+  --color-error-bg: #fed7d7;
+
+  /* ニュートラル */
+  --color-surface: #f7fafc;
+  --color-surface-elevated: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-focus: #63b3ed;
+  --color-text: #1a202c;
+  --color-text-muted: #4a5568;
+  --color-text-subtle: #718096;
+
+  /* シャドウ */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* トランジション */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  /* フォント */
+  --font-display: 'Outfit', 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  line-height: 1.6;
+}
+
+/* フォーカスリング - アクセシビリティ */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* スクロールバー */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-subtle);
+}
+
+/* モーダル用アニメーション */
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

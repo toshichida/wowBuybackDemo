@@ -5,6 +5,8 @@ import { useStoreData } from '../shared/hooks/useStoreData';
 import { SingleProductLayout } from './layouts/SingleProductLayout';
 import { MultiProductLayout } from './layouts/MultiProductLayout';
 import { ListProductLayout } from './layouts/ListProductLayout';
+import { Header } from '../buyback-ticket/components/Header';
+import { Button } from '../shared/components';
 import type { Product } from '../shared/types';
 
 function getProductsFromSelection(
@@ -33,51 +35,53 @@ export function ImagePreview() {
   const hasProducts = displayProducts.length > 0;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="border-b border-gray-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link to="/buyback" className="flex items-center gap-2">
-            <img src="/logo.svg" alt="買取専門店WOW" className="h-10 w-auto" />
-          </Link>
-          <nav className="flex gap-4 text-sm">
-            <Link to="/buyback" className="text-gray-600 hover:text-blue-600">
-              買取票
-            </Link>
-            <Link to="/admin" className="text-gray-600 hover:text-blue-600">
-              管理者
-            </Link>
-          </nav>
+    <div className="min-h-screen bg-slate-50">
+      <Header />
+      <main className="mx-auto max-w-4xl px-4 py-6 sm:px-6 sm:py-8">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">画像プレビュー</h1>
+          <p className="mt-1 text-slate-600">
+            X投稿用の画像を3パターンでプレビューできます
+          </p>
         </div>
-      </header>
-
-      <main className="mx-auto max-w-4xl px-4 py-6">
-        <h1 className="mb-6 text-2xl font-bold text-gray-900">画像プレビュー</h1>
 
         {!hasProducts ? (
-          <div className="rounded-lg border-2 border-amber-200 bg-amber-50 p-8 text-center">
+          <div className="rounded-xl border-2 border-amber-200 bg-amber-50 p-8 text-center shadow-sm">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
+              <svg
+                className="h-8 w-8 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
             <h3 className="mb-4 text-xl font-bold text-amber-800">
               プレビューする商品がありません
             </h3>
-            <p className="mb-6 text-gray-600">
+            <p className="mb-6 text-slate-600">
               買取票で商品を選択してから「画像プレビュー」をクリックするか、
               管理者画面から商品を選択してプレビューしてください。
             </p>
-            <Link
-              to="/buyback"
-              className="inline-block rounded-lg bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
-            >
-              買取票で商品を選択
+            <Link to="/buyback">
+              <Button size="lg">買取票で商品を選択</Button>
             </Link>
           </div>
         ) : (
           <>
-            <div className="mb-6 flex flex-wrap items-center gap-4">
+            <div className="mb-6 flex flex-wrap items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
               <div>
-                <label className="mr-2 text-sm font-medium text-gray-700">アスペクト比:</label>
+                <label className="mr-2 text-sm font-medium text-slate-700">アスペクト比:</label>
                 <select
                   value={aspectRatio}
                   onChange={(e) => setAspectRatio(e.target.value as '16:9' | '1:1')}
-                  className="rounded border border-gray-300 px-3 py-1"
+                  className="rounded-xl border border-slate-300 px-4 py-2 text-sm font-medium focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
                 >
                   <option value="16:9">16:9（X投稿向け）</option>
                   <option value="1:1">1:1（正方形）</option>
@@ -88,7 +92,9 @@ export function ImagePreview() {
             <div className="space-y-12">
               {displayProducts.length >= 1 && (
                 <section>
-                  <h2 className="mb-4 text-lg font-semibold text-gray-900">パターンA: 単品表示</h2>
+                  <h2 className="mb-4 text-lg font-semibold text-slate-900">
+                    パターンA: 単品表示
+                  </h2>
                   <SingleProductLayout
                     product={displayProducts[0]}
                     width={1200}
@@ -99,7 +105,7 @@ export function ImagePreview() {
 
               {displayProducts.length >= 2 && (
                 <section>
-                  <h2 className="mb-4 text-lg font-semibold text-gray-900">
+                  <h2 className="mb-4 text-lg font-semibold text-slate-900">
                     パターンB: 複数表示（2〜10商品）
                   </h2>
                   <MultiProductLayout
@@ -111,7 +117,9 @@ export function ImagePreview() {
               )}
 
               <section>
-                <h2 className="mb-4 text-lg font-semibold text-gray-900">パターンC: 一覧表示</h2>
+                <h2 className="mb-4 text-lg font-semibold text-slate-900">
+                  パターンC: 一覧表示
+                </h2>
                 <ListProductLayout
                   products={displayProducts}
                   width={1200}

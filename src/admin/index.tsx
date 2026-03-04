@@ -25,9 +25,12 @@ export function Admin() {
 
   return (
     <AdminLayout>
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-2xl font-bold text-gray-900">管理者画面</h1>
-        <div className="flex gap-2">
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">管理者画面</h1>
+          <p className="mt-1 text-slate-600">カテゴリと商品を管理できます</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
           <Button
             variant="outline"
             size="sm"

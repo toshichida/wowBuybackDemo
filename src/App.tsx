@@ -6,7 +6,7 @@ import { ImagePreview } from './image-preview';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-50">
       <Routes>
         <Route path="/" element={<Navigate to="/buyback" replace />} />
         <Route path="/buyback" element={<BuybackTicket />} />

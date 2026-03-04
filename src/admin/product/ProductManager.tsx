@@ -77,17 +77,17 @@ export function ProductManager({
     categories.find((c) => c.id === categoryId)?.name ?? categoryId;
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 text-xl font-bold text-gray-900">商品管理</h2>
+    <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 className="mb-4 text-xl font-bold text-slate-900">商品管理</h2>
 
       {!showForm ? (
         <Button onClick={() => setShowForm(true)} className="mb-6">
           商品を追加
         </Button>
       ) : (
-        <div className="mb-6 rounded border border-gray-200 bg-gray-50 p-4">
-          <h3 className="mb-3 font-semibold">新規商品</h3>
-          <div className="space-y-3">
+        <div className="mb-6 rounded-xl border border-slate-200 bg-slate-50/50 p-5">
+          <h3 className="mb-4 font-semibold text-slate-900">新規商品</h3>
+          <div className="grid gap-4 sm:grid-cols-2">
             <Input
               label="商品名"
               value={form.name}
@@ -104,13 +104,14 @@ export function ProductManager({
               value={form.imageUrl}
               onChange={(e) => setForm((f) => ({ ...f, imageUrl: e.target.value }))}
               placeholder="https://..."
+              className="sm:col-span-2"
             />
             <div>
-              <label className="mb-1 block text-sm font-medium text-gray-700">カテゴリ</label>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">カテゴリ</label>
               <select
                 value={form.categoryId}
                 onChange={(e) => setForm((f) => ({ ...f, categoryId: e.target.value }))}
-                className="w-full rounded-lg border border-gray-300 px-3 py-2"
+                className="w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
               >
                 {categories.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -120,7 +121,7 @@ export function ProductManager({
               </select>
             </div>
           </div>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-4 flex gap-2">
             <Button onClick={handleAdd}>追加</Button>
             <Button variant="secondary" onClick={resetForm}>
               キャンセル
@@ -129,35 +130,42 @@ export function ProductManager({
         </div>
       )}
 
-      <div className="overflow-x-auto -mx-4 sm:mx-0">
+      <div className="overflow-x-auto -mx-4 sm:mx-0 rounded-xl border border-slate-200">
         <table className="w-full min-w-[500px]">
           <thead>
-            <tr className="border-b border-gray-200 text-left text-sm text-gray-600">
-              <th className="pb-2 pr-4">画像</th>
-              <th className="pb-2 pr-4">商品名</th>
-              <th className="pb-2 pr-4">買取価格</th>
-              <th className="pb-2 pr-4">カテゴリ</th>
-              <th className="pb-2">操作</th>
+            <tr className="border-b border-slate-200 bg-slate-50 text-left text-sm font-medium text-slate-600">
+              <th className="px-4 py-3">画像</th>
+              <th className="px-4 py-3">商品名</th>
+              <th className="px-4 py-3">買取価格</th>
+              <th className="px-4 py-3">カテゴリ</th>
+              <th className="px-4 py-3">操作</th>
             </tr>
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id} className="border-b border-gray-100">
-                <td className="py-3 pr-4">
-                  <img src={product.imageUrl} alt="" className="h-12 w-12 rounded object-cover" />
+              <tr
+                key={product.id}
+                className="border-b border-slate-100 transition-colors last:border-b-0 hover:bg-slate-50/50"
+              >
+                <td className="px-4 py-3">
+                  <img
+                    src={product.imageUrl}
+                    alt=""
+                    className="h-12 w-12 rounded-lg object-cover"
+                  />
                 </td>
-                <td className="py-3 pr-4">
+                <td className="px-4 py-3">
                   {editingId === product.id ? (
                     <Input
                       value={editForm.name ?? ''}
                       onChange={(e) => setEditForm((f) => ({ ...f, name: e.target.value }))}
-                      className="w-48"
+                      className="min-w-[140px]"
                     />
                   ) : (
-                    product.name
+                    <span className="font-medium text-slate-900">{product.name}</span>
                   )}
                 </td>
-                <td className="py-3 pr-4">
+                <td className="px-4 py-3">
                   {editingId === product.id ? (
                     <Input
                       type="number"
@@ -171,10 +179,12 @@ export function ProductManager({
                       className="w-24"
                     />
                   ) : (
-                    `¥${product.buybackPrice.toLocaleString()}`
+                    <span className="font-medium text-amber-600">
+                      ¥{product.buybackPrice.toLocaleString()}
+                    </span>
                   )}
                 </td>
-                <td className="py-3 pr-4">
+                <td className="px-4 py-3">
                   {editingId === product.id ? (
                     <select
                       value={editForm.categoryId ?? ''}
@@ -184,7 +194,7 @@ export function ProductManager({
                           categoryId: e.target.value,
                         }))
                       }
-                      className="rounded border border-gray-300 px-2 py-1"
+                      className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400"
                     >
                       {categories.map((c) => (
                         <option key={c.id} value={c.id}>
@@ -193,10 +203,10 @@ export function ProductManager({
                       ))}
                     </select>
                   ) : (
-                    getCategoryName(product.categoryId)
+                    <span className="text-slate-600">{getCategoryName(product.categoryId)}</span>
                   )}
                 </td>
-                <td className="py-3">
+                <td className="px-4 py-3">
                   {editingId === product.id ? (
                     <div className="flex gap-2">
                       <Button size="sm" onClick={saveEdit}>
